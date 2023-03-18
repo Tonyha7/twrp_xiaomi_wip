@@ -58,6 +58,10 @@ on fs
     write /sys/kernel/boot_adsp/boot 1
     wait /sys/class/power_supply/battery
 
+on property:vendor.sys.listeners.registered=true
+    start keymaster-4-1
+    start gatekeeper-1-0
+
 service vendor.qseecomd /vendor/bin/qseecomd
     socket notify-topology stream 660 system drmrpc
     class core
