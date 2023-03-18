@@ -6,7 +6,11 @@
 #
 
 LOCAL_PATH := device/xiaomi/diting
+
 # A/B
+ENABLE_VIRTUAL_AB := true
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -21,15 +25,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bootctrl.taro
 
-# qcom standard decryption
 PRODUCT_PACKAGES += \
-    qcom_decrypt
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.taro \
-    libgptutils \
-    libz \
-    libcutils
+    qcom_decrypt \
+    qcom_decrypt_fbe
+    
+PRODUCT_PACKAGES += \
+    android.system.keystore2
 
 PRODUCT_PACKAGES += \
     otapreopt_script \

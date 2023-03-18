@@ -14,14 +14,9 @@ ALLOW_MISSING_DEPENDENCIES := true
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     system \
-    system \
-    system_ext \
     system_ext \
     product \
-    product \
     vendor \
-    vendor \
-    odm \
     odm
 BOARD_USES_RECOVERY_AS_BOOT := true
 
@@ -68,7 +63,7 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
 BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
-BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system system_ext system_ext product product vendor vendor odm odm
+BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 
 # Platform
@@ -78,6 +73,7 @@ TARGET_BOARD_PLATFORM := taro
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2021-08-01
@@ -95,7 +91,7 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_USES_METADATA_PARTITION := true
-BOARD_USES_QCOM_DECRYPTION := true
+BOARD_USES_QCOM_FBE_DECRYPTION := true
 TW_USE_FSCRYPT_POLICY := 1
 
 # TWRP Configuration
@@ -107,3 +103,4 @@ TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_NTFS_3G := true
 TW_HAS_EDL_MODE := true
+TW_INCLUDE_FASTBOOTD := true
