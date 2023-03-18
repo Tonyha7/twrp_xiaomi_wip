@@ -23,8 +23,7 @@ PRODUCT_PACKAGES += \
 
 # qcom standard decryption
 PRODUCT_PACKAGES += \
-    qcom_decrypt \
-    qcom_decrypt_fbe
+    qcom_decrypt
 
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     bootctrl.taro \
