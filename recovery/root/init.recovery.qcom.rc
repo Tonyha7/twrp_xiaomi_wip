@@ -56,6 +56,7 @@ on fs
     mount none /vendor/firmware_mnt/image /vendor/firmware bind rec
     wait /sys/kernel/boot_adsp/boot
     write /sys/kernel/boot_adsp/boot 1
+    install_keyring
     wait /sys/class/power_supply/battery
 
 on boot
